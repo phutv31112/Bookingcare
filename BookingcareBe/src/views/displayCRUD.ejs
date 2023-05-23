@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get user list</title>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="width:70%">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Role</th>
+        </tr>
+        <% dataTable.forEach(function(user){ %>
+            <tr>
+                <td>
+                    <%= user.firstName%>
+                </td>
+                <td>
+                    <%= user.lastName %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.gender %>
+                </td>
+                <td>
+                    <%= user.roleId %>
+                </td>
+                <td>
+                    <a href="/edit-crud?id=<%= user.id%>" type="button">Edit</a>
+                    <a href="/delete-crud?id=<%= user.id%>" type="button">Delete</a>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+</body>
+
+</html>
